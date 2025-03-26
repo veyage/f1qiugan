@@ -1,0 +1,13 @@
+*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin'
+Build target 'f1_foc_openspeed'
+compiling main.c...
+../MDK-ARM/filter.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif // FILTER_H
+../Core/Src/main.c(38): error:  #260-D: explicit type is missing ("int" assumed)
+  extern Samp_volts[2];
+../Core/Src/main.c(139): error:  #20: identifier "hadc2" is undefined
+     HAL_ADC_Start_DMA(&hadc2, (uint32_t *)Samp_volts, 2);
+../Core/Src/main.c: 1 warning, 2 errors
+"f1_foc_openspeed\f1_foc_openspeed.axf" - 2 Error(s), 1 Warning(s).
+Target not created.
+Build Time Elapsed:  00:00:01

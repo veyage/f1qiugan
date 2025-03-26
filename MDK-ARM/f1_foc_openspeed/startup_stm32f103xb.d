@@ -1,0 +1,1 @@
+f1_foc_openspeed\startup_stm32f103xb.o: startup_stm32f103xb.s
