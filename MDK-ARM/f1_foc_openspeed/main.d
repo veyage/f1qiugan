@@ -40,11 +40,12 @@ f1_foc_openspeed\main.o: ../Core/Inc/gpio.h
 f1_foc_openspeed\main.o: ../MDK-ARM/foc.h
 f1_foc_openspeed\main.o: ../MDK-ARM/pid.h
 f1_foc_openspeed\main.o: ../MDK-ARM/AS5600.h
-f1_foc_openspeed\main.o: ../MDK-ARM/filter.h
 f1_foc_openspeed\main.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 f1_foc_openspeed\main.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 f1_foc_openspeed\main.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 f1_foc_openspeed\main.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
 f1_foc_openspeed\main.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+f1_foc_openspeed\main.o: ../MDK-ARM/filter.h
 f1_foc_openspeed\main.o: ../MDK-ARM/current.h
+f1_foc_openspeed\main.o: ../MDK-ARM/control.h
 f1_foc_openspeed\main.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\stdio.h

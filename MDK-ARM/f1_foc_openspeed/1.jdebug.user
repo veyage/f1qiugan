@@ -1,36 +1,24 @@
 
-GraphedExpression="Vel", Color=#e56a6f
-GraphedExpression="Uq", Color=#35792b
-GraphedExpression="angle_prev", Color=#769dda
-GraphedExpression="Vel1", DisplayFormat=DISPLAY_FORMAT_DEC, Color=#b14f0d
-GraphedExpression="Last_Vel_ts", Color=#b3c38e
-OpenDocument="filter.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/MDK-ARM/filter.c", Line=49
+OpenDocument="main.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/Core/Src/main.c", Line=99
 OpenDocument="startup_stm32f103xb.s", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/MDK-ARM/startup_stm32f103xb.s", Line=124
-OpenDocument="stm32f1xx_hal_i2c.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c", Line=7312
+OpenDocument="stm32f1xx_hal_i2c.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/Drivers/STM32F1xx_HAL_Driver/Src/stm32f1xx_hal_i2c.c", Line=7317
 OpenDocument="AS5600.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/MDK-ARM/AS5600.c", Line=37
 OpenDocument="foc.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/MDK-ARM/foc.c", Line=142
-OpenDocument="main.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/Core/Src/main.c", Line=89
+OpenDocument="filter.c", FilePath="C:/Users/23917/Desktop/New Folder/f1_foc_openspeed/MDK-ARM/filter.c", Line=49
 OpenToolbar="Debug", Floating=0, x=0, y=0
-OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=2, w=300, h=366, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
-OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=300, h=299, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Memory 1", DockArea=RIGHT, x=0, y=1, w=300, h=165, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, EditorAddress=0x0
-OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=1, w=300, h=463, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
-OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=300, h=368, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Registers 1", DockArea=RIGHT, x=0, y=2, w=300, h=361, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, FilteredItems=[], RefreshRate=1
+OpenWindow="Disassembly", DockArea=RIGHT, x=0, y=0, w=300, h=298, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Memory 1", DockArea=RIGHT, x=0, y=1, w=300, h=171, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, EditorAddress=0x0
+OpenWindow="Watched Data 1", DockArea=LEFT, x=0, y=1, w=300, h=461, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
+OpenWindow="Functions", DockArea=LEFT, x=0, y=0, w=300, h=370, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 OpenWindow="Data Sampling", DockArea=BOTTOM, x=1, y=0, w=890, h=474, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0, VisibleTab=0, UniformSampleSpacing=0
 OpenWindow="Timeline", DockArea=BOTTOM, x=2, y=0, w=1000, h=474, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=1, DataPaneShown=1, PowerPaneShown=0, CodePaneShown=0, PinCursor="Cursor Movable", TimePerDiv="20 ms / Div", TimeStampFormat="Time", DataGraphDrawAsPoints=0, DataGraphLegendShown=1, DataGraphUniformSampleSpacing=0, DataGraphLegendPosition="566;40", PowerGraphDrawAsPoints=0, PowerGraphLegendShown=0, PowerGraphAvgFilterTime=Off, PowerGraphAvgFilterLen=Off, PowerGraphUniformSampleSpacing=0, PowerGraphLegendPosition="583;0", CodeGraphLegendShown=0, CodeGraphLegendPosition="589;0"
 OpenWindow="Console", DockArea=BOTTOM, x=0, y=0, w=668, h=474, FilterBarShown=0, TotalValueBarShown=0, ToolBarShown=0
 TableHeader="Functions", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Address";"Size";"#Insts";"Source"], ColWidths=[490;100;100;100;194]
-TableHeader="Data Sampling Table", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";" Vel";" Uq";" angle_prev";" Vel1";" Last_Vel_ts"], ColWidths=[100;100;100;100;100;100;100]
-TableHeader="Data Sampling Setup", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[100;100;105;112;105;112;100;112;105]
+TableHeader="Data Sampling Table", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time"], ColWidths=[100;100]
+TableHeader="Data Sampling Setup", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Type";"Value";"Min";"Max";"Average";"# Changes";"Min. Change";"Max. Change"], ColWidths=[100;100;100;100;100;100;100;100;100]
 TableHeader="Power Sampling", SortCol="Index", SortOrder="ASCENDING", VisibleCols=["Index";"Time";"Ch 0"], ColWidths=[100;100;100]
 TableHeader="Registers 1", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Description"], ColWidths=[100;118;224]
 TableHeader="Watched Data 1", SortCol="Expression", SortOrder="ASCENDING", VisibleCols=["Expression";"Value";"Location";"Refresh"], ColWidths=[100;100;100;100]
 TableHeader="RegisterSelectionDialog", SortCol="None", SortOrder="ASCENDING", VisibleCols=[], ColWidths=[]
 TableHeader="TargetExceptionDialog", SortCol="Name", SortOrder="ASCENDING", VisibleCols=["Name";"Value";"Address";"Description"], ColWidths=[26;26;26;26]
-WatchedExpression="Tf", Window=Watched Data 1
-WatchedExpression="Kp", Window=Watched Data 1
-WatchedExpression="Ki", Window=Watched Data 1
-WatchedExpression="Target", Window=Watched Data 1
-WatchedExpression="Kd", Window=Watched Data 1
-WatchedExpression="kalman_filter", Window=Watched Data 1
-WatchedExpression="kalman_initialized", Window=Watched Data 1

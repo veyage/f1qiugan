@@ -37,11 +37,11 @@ f1_foc_openspeed\foc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex
 f1_foc_openspeed\foc.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 f1_foc_openspeed\foc.o: pid.h
 f1_foc_openspeed\foc.o: AS5600.h
-f1_foc_openspeed\foc.o: ../Core/Inc/i2c.h
 f1_foc_openspeed\foc.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 f1_foc_openspeed\foc.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
 f1_foc_openspeed\foc.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
 f1_foc_openspeed\foc.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+f1_foc_openspeed\foc.o: ../Core/Inc/i2c.h
 f1_foc_openspeed\foc.o: filter.h
 f1_foc_openspeed\foc.o: current.h
 f1_foc_openspeed\foc.o: ../Core/Inc/adc.h

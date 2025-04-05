@@ -3,18 +3,18 @@
         {
             "name": "f1_foc_openspeed",
             "includePath": [
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Core\\Inc",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Drivers\\CMSIS\\Include",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Middlewares\\ST\\ARM\\DSP\\Inc",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\MDK-ARM",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Core\\Inc",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Drivers\\STM32F1xx_HAL_Driver\\Inc",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Drivers\\STM32F1xx_HAL_Driver\\Inc\\Legacy",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Drivers\\CMSIS\\Device\\ST\\STM32F1xx\\Include",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Drivers\\CMSIS\\Include",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Middlewares\\ST\\ARM\\DSP\\Inc",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\MDK-ARM",
                 "C:\\Users\\23917\\AppData\\Local\\Keil_v5\\ARM\\ARMCC\\include",
                 "C:\\Users\\23917\\AppData\\Local\\Keil_v5\\ARM\\ARMCC\\include\\rw",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Core\\Src",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Drivers\\STM32F1xx_HAL_Driver\\Src",
-                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_closedcurrent\\Middlewares\\ST\\ARM\\DSP\\Lib"
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Core\\Src",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Drivers\\STM32F1xx_HAL_Driver\\Src",
+                "c:\\Users\\23917\\Desktop\\New Folder\\f1_foc_allinone\\Middlewares\\ST\\ARM\\DSP\\Lib"
             ],
             "defines": [
                 "USE_HAL_DRIVER",

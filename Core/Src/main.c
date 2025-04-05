@@ -32,10 +32,11 @@
 #include "AS5600.h"
 #include "filter.h"
 #include "current.h"
+#include "control.h"
 extern float angle_d;				//GetAngle_Without_Track()的返回值
 extern float angle_cd;
 float reload_value;
-extern uint16_t Samp_volts[2];	
+extern uint16_t Samp_volts[4];	
 /* USER CODE END Includes */
 
 /* Private typedef -----------------------------------------------------------*/
@@ -88,12 +89,19 @@ int fgetc(FILE *f)
   HAL_UART_Receive(&huart1, &ch, 1, 0xffff);
   return ch;
 }
-float current=0.1;
+float current=0.5;
 float Target=2.0;
 float Angle=0;
 PID_Controller_t velocity_pid;
 PID_Controller_t angle_pid;
 PID_Controller_t current_pid;
+    float target_position = 2.65;  // 目标位置（单位：度）
+    float max_velocity = 0.2;    // 最大速度（单位：度/秒）
+uint8_t rx_buff[8];
+int rxflag=0;
+float testa=2.65,testb=0.2;
+extern float vel,d;
+int flag=1;
 /* USER CODE END 0 */
 
 /**
@@ -132,13 +140,17 @@ int main(void)
   MX_ADC1_Init();
   /* USER CODE BEGIN 2 */
 	reload_value = SysTick->LOAD;
-  PID_Init(&velocity_pid, 40.0f, 58.0f, 10.0f); // 初始化速度 PID
-  PID_Init(&angle_pid, 0.133f, 0.01f, 0.0f);    // 初始化角度 PID
-	PID_Init(&current_pid, 5.0f, 200.0f, 0.0f);    // 初始化电流 PID
+  PID_Init(&velocity_pid, 5, 40.0, 0); // 初始化速度 PID
+  PID_Init(&angle_pid, 20, 0, 0);    // 初始化角度 PID
+//  PID_Init(&velocity_pid, 0.5, 40.0, 0); // 初始化速度 PID
+//  PID_Init(&angle_pid, 0.133f, 0.01f, 0.0);    // 初始化角度 PID
+	PID_Init(&current_pid, 1.0, 100.0, 0.0);    // 初始化电流 PID
 	Motor_en(); //电机使能
-	FOC_Init(12.6);
-//	printf("1\n");
-   HAL_Delay(100);
+	FOC_Init(12);
+	printf("1\n");
+  HAL_Delay(100);
+	HAL_UART_Receive_DMA(&huart1, rx_buff, 6); // 启动DMA接收
+//		__HAL_DMA_ENABLE_IT(&hdma_usart1_rx, DMA_IT_TC);
 //   HAL_ADC_Start_DMA(&hadc1, (uint32_t *)Samp_volts, 2);
   /* USER CODE END 2 */
 
@@ -146,10 +158,20 @@ int main(void)
   /* USER CODE BEGIN WHILE */
   while (1)
   { 
+		if(flag==0)	
+		{if(rx_buff[0] == 0xAA && rx_buff[5] == 0xFF)
+		{			
+		  d=(float)(int16_t)(rx_buff[1]<<8|rx_buff[2])/100;
+	  	vel=(float)(int16_t)(rx_buff[3]<<8|rx_buff[4])/100;
+			memset(rx_buff, 0, sizeof(rx_buff));
+      rxflag=1;
+		}	
+    if(rxflag==1)
+		{
+			control(&target_position,&max_velocity);
+      rxflag=0;}}
 
-//		Set_Angle(Angle, &angle_pid); // 传递角度 PID 控制器
-//    Set_Velocity(Target, &velocity_pid); // 传递速度 PID 控制器
-	 Set_CurTorque(current,&current_pid); 
+    M0_Set_Position_Velocity(target_position, max_velocity, &angle_pid, &velocity_pid);
     /* USER CODE END WHILE */
 
     /* USER CODE BEGIN 3 */

@@ -21,20 +21,30 @@ Target DLL:      Segger\JL2CM3.dll V2.99.44.0
 Dialog DLL:      TCM.DLL V1.56.4.0
  
 <h2>Project:</h2>
-C:\Users\23917\Desktop\New Folder\f1_foc_closedcurrent\MDK-ARM\f1_foc_openspeed.uvprojx
-Project File Date:  03/27/2025
+C:\Users\23917\Desktop\New Folder\f1qiugan\MDK-ARM\f1_foc_openspeed.uvprojx
+Project File Date:  04/04/2025
 
 <h2>Output:</h2>
 *** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin'
 Build target 'f1_foc_openspeed'
-compiling main.c...
-../MDK-ARM/filter.h(27): warning:  #1-D: last line of file ends without a newline
+compiling control.c...
+AS5600.h(27): warning:  #1-D: last line of file ends without a newline
+  #endif // AS5600_H
+filter.h(34): warning:  #1-D: last line of file ends without a newline
   #endif // FILTER_H
-../Core/Src/main.c: 1 warning, 0 errors
+control.h(13): warning:  #1295-D: Deprecated declaration predict_vel - give arg types
+  void predict_vel();
+control.h(14): warning:  #1295-D: Deprecated declaration get_d - give arg types
+  void get_d();
+control.h(15): warning:  #1295-D: Deprecated declaration get_vel - give arg types
+  void get_vel();
+control.c(106): warning:  #1-D: last line of file ends without a newline
+  }
+control.c: 6 warnings, 0 errors
 linking...
-Program Size: Code=16536 RO-data=2380 RW-data=260 ZI-data=1468  
+Program Size: Code=21580 RO-data=2412 RW-data=396 ZI-data=1652  
 FromELF: creating hex file...
-"f1_foc_openspeed\f1_foc_openspeed.axf" - 0 Error(s), 1 Warning(s).
+"f1_foc_openspeed\f1_foc_openspeed.axf" - 0 Error(s), 6 Warning(s).
 
 <h2>Software Packages used:</h2>
 

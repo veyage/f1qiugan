@@ -1,6 +1,5 @@
 f1_foc_openspeed\as5600.o: AS5600.c
 f1_foc_openspeed\as5600.o: AS5600.h
-f1_foc_openspeed\as5600.o: ../Core/Inc/main.h
 f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 f1_foc_openspeed\as5600.o: ../Core/Inc/stm32f1xx_hal_conf.h
 f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -32,10 +31,11 @@ f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_pwr
 f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim.h
 f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 f1_foc_openspeed\as5600.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
-f1_foc_openspeed\as5600.o: ../Core/Inc/i2c.h
-f1_foc_openspeed\as5600.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
-f1_foc_openspeed\as5600.o: filter.h
 f1_foc_openspeed\as5600.o: ../Middlewares/ST/ARM/DSP/Inc/arm_math.h
 f1_foc_openspeed\as5600.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\string.h
+f1_foc_openspeed\as5600.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\math.h
 f1_foc_openspeed\as5600.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\float.h
 f1_foc_openspeed\as5600.o: C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin\..\include\limits.h
+f1_foc_openspeed\as5600.o: ../Core/Inc/i2c.h
+f1_foc_openspeed\as5600.o: ../Core/Inc/main.h
+f1_foc_openspeed\as5600.o: filter.h

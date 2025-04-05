@@ -4,10 +4,6 @@
 #define  Output_ramp      10000
 
 // 限幅
-float _constrain(float amt, float low, float high)    
-{
-    return ((amt < low) ? (low) : ((amt > high) ? (high) : (amt)));
-}
 
 // 定义 PID 控制器结构体
 

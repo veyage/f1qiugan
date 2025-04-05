@@ -1,6 +1,5 @@
 f1_foc_openspeed\current.o: current.c
 f1_foc_openspeed\current.o: current.h
-f1_foc_openspeed\current.o: ../Core/Inc/main.h
 f1_foc_openspeed\current.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal.h
 f1_foc_openspeed\current.o: ../Core/Inc/stm32f1xx_hal_conf.h
 f1_foc_openspeed\current.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_rcc.h
@@ -33,3 +32,4 @@ f1_foc_openspeed\current.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_ti
 f1_foc_openspeed\current.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_tim_ex.h
 f1_foc_openspeed\current.o: ../Drivers/STM32F1xx_HAL_Driver/Inc/stm32f1xx_hal_uart.h
 f1_foc_openspeed\current.o: ../Core/Inc/adc.h
+f1_foc_openspeed\current.o: ../Core/Inc/main.h

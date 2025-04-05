@@ -1,13 +1,57 @@
-*** Using Compiler 'V5.06 update 6 (build 750)', folder: 'C:\Users\23917\AppData\Local\Keil_v5\ARM\ARMCC\Bin'
-Build target 'f1_foc_openspeed'
-compiling main.c...
-../MDK-ARM/filter.h(27): warning:  #1-D: last line of file ends without a newline
-  #endif // FILTER_H
-../Core/Src/main.c(38): error:  #260-D: explicit type is missing ("int" assumed)
-  extern Samp_volts[2];
-../Core/Src/main.c(139): error:  #20: identifier "hadc2" is undefined
-     HAL_ADC_Start_DMA(&hadc2, (uint32_t *)Samp_volts, 2);
-../Core/Src/main.c: 1 warning, 2 errors
-"f1_foc_openspeed\f1_foc_openspeed.axf" - 2 Error(s), 1 Warning(s).
-Target not created.
-Build Time Elapsed:  00:00:01
+Load "f1_foc_openspeed\\f1_foc_openspeed.axf" 
+Set JLink Project File to "c:\Users\23917\Desktop\New Folder\f1_foc_allinone\MDK-ARM\JLinkSettings.ini"* JLink Info: Device "STM32F103C8" selected.
+
+JLink info:
+------------
+DLL: V7.96h, compiled May 15 2024 15:33:59
+Firmware: J-Link V9 compiled May  7 2021 16:26:12
+Hardware: V9.60
+S/N : 69610250 
+Feature(s) : GDB, RDI, FlashBP, FlashDL, JFlash 
+
+* JLink Info: InitTarget() start
+* JLink Info: SWD selected. Executing JTAG -> SWD switching sequence.
+* JLink Info: DAP initialized successfully.
+* JLink Info: InitTarget() end - Took 13.4ms
+* JLink Info: Found SW-DP with ID 0x1BA01477
+* JLink Info: DPIDR: 0x1BA01477
+* JLink Info: CoreSight SoC-400 or earlier
+* JLink Info: Scanning AP map to find all available APs
+* JLink Info: AP[1]: Stopped AP scan as end of AP map has been reached
+* JLink Info: AP[0]: AHB-AP (IDR: 0x14770011)
+* JLink Info: Iterating through AP map to find AHB-AP to use
+* JLink Info: AP[0]: Core found
+* JLink Info: AP[0]: AHB-AP ROM base: 0xE00FF000
+* JLink Info: CPUID register: 0x411FC231. Implementer code: 0x41 (ARM)
+* JLink Info: Found Cortex-M3 r1p1, Little endian.
+* JLink Info: FPUnit: 6 code (BP) slots and 2 literal slots
+* JLink Info: CoreSight components:
+* JLink Info: ROMTbl[0] @ E00FF000
+* JLink Info: [0][0]: E000E000 CID B105E00D PID 001BB000 SCS
+* JLink Info: [0][1]: E0001000 CID B105E00D PID 001BB002 DWT
+* JLink Info: [0][2]: E0002000 CID B105E00D PID 000BB003 FPB
+* JLink Info: [0][3]: E0000000 CID B105E00D PID 001BB001 ITM
+* JLink Info: [0][4]: E0040000 CID B105900D PID 001BB923 TPIU-Lite
+ROMTableAddr = 0xE00FF000
+* JLink Info: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+* JLink Info: Reset: Reset device via AIRCR.SYSRESETREQ.
+
+Target info:
+------------
+Device: STM32F103C8
+VTarget = 3.009V
+State of Pins: TCK: 0, TDI: 1, TDO: 1, TMS: 1, TRES: 1, TRST: 1
+Hardware-Breakpoints: 6
+Software-Breakpoints: 8192
+Watchpoints:          4
+JTAG speed: 4000 kHz
+
+* JLink Info: Memory map 'after startup completion point' is active
+Erase Done.Programming Done.Verify OK.* JLink Info: Memory map 'before startup completion point' is active
+* JLink Info: Reset: Halt core after reset via DEMCR.VC_CORERESET.
+* JLink Info: Reset: Reset device via AIRCR.SYSRESETREQ.
+* JLink Info: Memory map 'after startup completion point' is active
+Application running ...
+* JLink Info: OnDisconnectTarget() start
+* JLink Info: OnDisconnectTarget() end - Took 247us
+Flash Load finished at 01:10:47

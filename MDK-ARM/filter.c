@@ -3,83 +3,38 @@
 
 /////////////////ÂË²¨
 
+extern float reload_value;
+
+
 KalmanFilter kalman_filter;
-uint32_t Last_Timesamp = 0.0;
-float Last_y = 0.0;
-float alpha = 0.998;
-float y;
-float Tf=0.4;
-float Lowpassfilter(float x) {
+
+// Ê¹ÓÃ LOWPASS ½á¹¹ÌåµÄµÍÍ¨ÂË²¨Æ÷ÊµÏÖ
+float Lowpassfilter( LOWPASS *lowpass, float x) {
     float dt = 0.0;
 
     uint32_t Timesamp = SysTick->VAL;
-    if (Timesamp > Last_Timesamp) 
-        dt = (float)(Timesamp - Last_Timesamp) / (reload_value/1000) * 1e-3f;
-    else
-        dt = (float)(reload_value   - Last_Timesamp + Timesamp) / (reload_value/1000) * 1e-3f;
+    if (Timesamp < lowpass->Last_Timesamp) {
+        dt = (float)(lowpass->Last_Timesamp - Timesamp) / (reload_value / 1000) * 1e-3f;
+    } else {
+        dt = (float)(reload_value - Timesamp + lowpass->Last_Timesamp) / (reload_value / 1000) * 1e-3f;
+    }
 
-		
-    alpha = Tf / (Tf + dt);
-    y = alpha * Last_y + (1.0f - alpha) * x;
+    if (dt <= 0.0f || dt > 0.005f) {
+        lowpass->Last_y = x;
+        lowpass->Last_Timesamp = Timesamp;
+        return x;
+    }
 
-    Last_y = y;
-    Last_Timesamp = Timesamp;
+    float alpha = lowpass->Tf / (lowpass->Tf + dt);
+    float y = alpha * lowpass->Last_y + (1.0f - alpha) * x;
+
+    lowpass->Last_y = y;
+    lowpass->Last_Timesamp = Timesamp;
 
     return y;
 }
 
-uint32_t Last_Timesamp0 = 0.0;
-float Last_y0 = 0.0;
-float alpha0 = 0.998;
-float y0;
-float Tf0=0.4;
-float Lowpassfilter_v(float x) {
-    float dt = 0.0;
 
-    uint32_t Timesamp = SysTick->VAL;
-    if (Timesamp < Last_Timesamp0) 
-        dt = (float)(Last_Timesamp0 - Timesamp) / (reload_value/1000) * 1e-3;
-    else
-        dt = (float)(reload_value   - Timesamp + Last_Timesamp0) / (reload_value/1000) * 1e-3;
-
-		
-    alpha0 = Tf0 / (Tf0 + dt);
-    y0 = alpha0 * Last_y0 + (1.0f - alpha0) * x;
-
-    Last_y0 = y0;
-    Last_Timesamp0 = Timesamp;
-
-    return y0;
-}
-uint32_t Last_Timesamp1 = 0.0;
-float Last_y1 = 0.0;
-float alpha1 = 0.998;
-float y1;
-float Tf1=0.4;
-float Lowpassfilter_t(float x) {
-    float dt = 0.0;
-
-    uint32_t Timesamp = SysTick->VAL;
-    if (Timesamp > Last_Timesamp1) 
-        dt = (float)(Timesamp - Last_Timesamp1) / (reload_value/1000) * 1e-3;
-    else
-        dt = (float)(reload_value   - Last_Timesamp1 + Timesamp) / (reload_value/1000)  * 1e-3;
-
-		
-    alpha1 = Tf1 / (Tf1 + dt);
-    y1 = alpha1 * Last_y1 + (1.0f - alpha1) * x;
-
-    Last_y1 = y1;
-    Last_Timesamp1 = Timesamp;
-
-    return y1;
-}
-
-float Lowpassfilter_sim(float x) {
-    float out = 0.9 * x + 0.1 * y;
-    y = x;
-    return out;
-}
 
 // ¿¨¶ûÂüÂË²¨Æ÷³õÊ¼»¯
 void KalmanFilter_Init(KalmanFilter *filter, float q, float r, float initial_value) {
@@ -107,31 +62,4 @@ float KalmanFilter_Update(KalmanFilter *filter, float measurement) {
     return filter->x;
 }
 
-// ½Ó¿Úº¯Êý
 
-float ApplyFilters(float input) { 
-
-    static int kalman_initialized = 2;
-
-    // µÍÍ¨ÂË²¨Æ÷
-    float lowpass_output = Lowpassfilter(input);
-
-	// ¿¨¶ûÂüÂË²¨Æ÷
-	if (!kalman_initialized) {
-			KalmanFilter_Init(&kalman_filter, 0.02, 2, lowpass_output);
-		kalman_initialized=1;
-	}
-	if (kalman_initialized==1)
-	return KalmanFilter_Update(&kalman_filter, lowpass_output);
-	else
-	return lowpass_output;
-//		// ¿¨¶ûÂüÂË²¨Æ÷
-//	if (!kalman_initialized) {
-//			KalmanFilter_Init(&kalman_filter, 0.1f, 0.1f, input);
-//		kalman_initialized=1;
-//	}
-//	printf("%.2f\n",KalmanFilter_Update(&kalman_filter, input));
-//	return KalmanFilter_Update(&kalman_filter, input);
-//		printf("%.2f\n",lowpass_output);
-//  	return lowpass_output;
-}
