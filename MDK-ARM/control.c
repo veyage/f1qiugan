@@ -14,24 +14,25 @@ float _constrain(float amt, float low, float high)
     return ((amt < low) ? (low) : ((amt > high) ? (high) : (amt)));
 }
 // 初始化 PID 参数
-PID_Params pid_params = {0.5f, 0.001f, 0.05f, 0.0f, 0.0f};
+PID_Params pid_params1 = {0.5f, 0.05f, 0.0f, 0.0f, 0.0f};
+PID_Params pid_params2 = {1.0f, 0.002f, 0.1f, 0.0f, 0.0f};
 
-// 增量式 PID 控制器函数
-float pid(float setpoint, float measured_value) {
+// 增量式 PID 控制器函数，支持传入不同的 PID 参数
+float pid(float setpoint, float measured_value, PID_Params *params) {
     static float prev_output = 0.0f; // 上一次输出
     float error = setpoint - measured_value; // 当前误差
-    float delta_error = error - pid_params.prev_error; // 误差增量
+    float delta_error = error - params->prev_error; // 误差增量
 
     // 计算增量
-    float delta_output = pid_params.kp * delta_error +
-                         pid_params.ki * error +
-                         pid_params.kd * (delta_error - pid_params.prev_error);
+    float delta_output = params->kp * delta_error +
+                         params->ki * error +
+                         params->kd * (delta_error - params->prev_error);
 
     // 更新输出
     float output = prev_output + delta_output;
 
     // 更新状态
-    pid_params.prev_error = error;
+    params->prev_error = error;
     prev_output = output;
 
     return output;
@@ -46,7 +47,7 @@ float setd=0.0;
 float setv=0.0;
 float pidd;
 float pidv;
-float a=1,b=1;
+float a=10,b=1;
 float i=-0.5;
 float j=0.1;
 float baseangel=2.65;
@@ -56,15 +57,16 @@ void control(float *angleneed, float *velneed)
     get_d();
     get_vel();
     predict_vel(); 
-    pidd = pid(setd, pre_d);
-    pidv = pid(pidd, pre_vel);
+    pidd = pid(setd, pre_d, &pid_params1);
+	  pidd=pidd*i;
+//    pidv = pid(pidd, pre_vel, &pid_params2);
 
     // 假设杆子的加速度 pidv 转换为角度（弧度制）
     float g = 9.8f; // 重力加速度，单位 m/s^2
-    angle_from_acc = asinf(pidv / g); // 将加速度转换为角度（弧度制）
-    *angleneed += angle_from_acc* i;
+    angle_from_acc = asinf(pidd / g); // 将加速度转换为角度（弧度制）
+    *angleneed += angle_from_acc;
     *angleneed	=_constrain(*angleneed,2.25, 3.05);// 使用转换后的角度值更新 angleneed
-//    *velneed = _constrain((pre_vel * a + (setd - pre_d) * b) * j, -limitvel, limitvel);
+ //   *velneed = _constrain((pre_vel * a + (setd - pre_d) * b) * j, -limitvel, limitvel);
 	  if(*velneed <0)
 			*velneed =-*velneed ;
     Last_d = d;

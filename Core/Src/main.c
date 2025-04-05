@@ -99,7 +99,7 @@ PID_Controller_t current_pid;
     float max_velocity = 0.2;    // 最大速度（单位：度/秒）
 uint8_t rx_buff[8];
 int rxflag=0;
-float testa=2.65,testb=0.2;
+float testa=2.65,testb=0.5;
 extern float vel,d;
 int flag=1;
 /* USER CODE END 0 */

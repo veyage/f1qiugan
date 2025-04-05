@@ -317,16 +317,16 @@ Section Cross References
     control.o(i.control) refers to control.o(i.get_vel) for get_vel
     control.o(i.control) refers to control.o(i.predict_vel) for predict_vel
     control.o(i.control) refers to control.o(i.pid) for pid
+    control.o(i.control) refers to fmul.o(.text) for __aeabi_fmul
     control.o(i.control) refers to fdiv.o(.text) for __aeabi_fdiv
     control.o(i.control) refers to asinf.o(i.asinf) for asinf
-    control.o(i.control) refers to fmul.o(.text) for __aeabi_fmul
     control.o(i.control) refers to fadd.o(.text) for __aeabi_fadd
     control.o(i.control) refers to control.o(i._constrain) for _constrain
     control.o(i.control) refers to cfcmple.o(.text) for __aeabi_cfcmple
-    control.o(i.control) refers to control.o(.data) for pre_d
+    control.o(i.control) refers to control.o(.data) for pid_params1
     control.o(i.pid) refers to fadd.o(.text) for __aeabi_fsub
     control.o(i.pid) refers to fmul.o(.text) for __aeabi_fmul
-    control.o(i.pid) refers to control.o(.data) for pid_params
+    control.o(i.pid) refers to control.o(.data) for prev_output
     control.o(i.predict_vel) refers to fdiv.o(.text) for __aeabi_fdiv
     control.o(i.predict_vel) refers to fflti.o(.text) for __aeabi_i2f
     control.o(i.predict_vel) refers to fmul.o(.text) for __aeabi_fmul
@@ -2363,44 +2363,44 @@ Image Symbol Table
     i.asinf                                  0x080049e8   Section        0  asinf.o(i.asinf)
     i.constrain                              0x08004b0c   Section        0  foc.o(i.constrain)
     i.control                                0x08004b34   Section        0  control.o(i.control)
-    i.cosf                                   0x08004bf0   Section        0  cosf.o(i.cosf)
-    i.electricAngle                          0x08004d6c   Section        0  foc.o(i.electricAngle)
-    i.fmodf                                  0x08004dc4   Section        0  fmodf.o(i.fmodf)
-    i.fputc                                  0x08004e30   Section        0  main.o(i.fputc)
-    i.get_d                                  0x08004e4c   Section        0  control.o(i.get_d)
-    i.get_vel                                0x08004e4e   Section        0  control.o(i.get_vel)
-    i.main                                   0x08004e50   Section        0  main.o(i.main)
-    i.normalizeAngle                         0x08004f98   Section        0  foc.o(i.normalizeAngle)
-    i.pid                                    0x08004fc4   Section        0  control.o(i.pid)
-    i.predict_vel                            0x08005044   Section        0  control.o(i.predict_vel)
-    i.sinf                                   0x08005384   Section        0  sinf.o(i.sinf)
-    i.sqrtf                                  0x0800550c   Section        0  sqrtf.o(i.sqrtf)
-    .constdata                               0x08005538   Section       18  stm32f1xx_hal_rcc.o(.constdata)
-    aPLLMULFactorTable                       0x08005538   Data          16  stm32f1xx_hal_rcc.o(.constdata)
-    aPredivFactorTable                       0x08005548   Data           2  stm32f1xx_hal_rcc.o(.constdata)
-    .constdata                               0x0800554a   Section       18  stm32f1xx_hal_rcc_ex.o(.constdata)
-    aPLLMULFactorTable                       0x0800554a   Data          16  stm32f1xx_hal_rcc_ex.o(.constdata)
-    aPredivFactorTable                       0x0800555a   Data           2  stm32f1xx_hal_rcc_ex.o(.constdata)
-    .constdata                               0x0800555c   Section       24  system_stm32f1xx.o(.constdata)
-    .constdata                               0x08005574   Section       32  rredf.o(.constdata)
-    twooverpi                                0x08005574   Data          32  rredf.o(.constdata)
+    i.cosf                                   0x08004be0   Section        0  cosf.o(i.cosf)
+    i.electricAngle                          0x08004d5c   Section        0  foc.o(i.electricAngle)
+    i.fmodf                                  0x08004db4   Section        0  fmodf.o(i.fmodf)
+    i.fputc                                  0x08004e20   Section        0  main.o(i.fputc)
+    i.get_d                                  0x08004e3c   Section        0  control.o(i.get_d)
+    i.get_vel                                0x08004e3e   Section        0  control.o(i.get_vel)
+    i.main                                   0x08004e40   Section        0  main.o(i.main)
+    i.normalizeAngle                         0x08004f88   Section        0  foc.o(i.normalizeAngle)
+    i.pid                                    0x08004fb4   Section        0  control.o(i.pid)
+    i.predict_vel                            0x08005024   Section        0  control.o(i.predict_vel)
+    i.sinf                                   0x08005364   Section        0  sinf.o(i.sinf)
+    i.sqrtf                                  0x080054ec   Section        0  sqrtf.o(i.sqrtf)
+    .constdata                               0x08005518   Section       18  stm32f1xx_hal_rcc.o(.constdata)
+    aPLLMULFactorTable                       0x08005518   Data          16  stm32f1xx_hal_rcc.o(.constdata)
+    aPredivFactorTable                       0x08005528   Data           2  stm32f1xx_hal_rcc.o(.constdata)
+    .constdata                               0x0800552a   Section       18  stm32f1xx_hal_rcc_ex.o(.constdata)
+    aPLLMULFactorTable                       0x0800552a   Data          16  stm32f1xx_hal_rcc_ex.o(.constdata)
+    aPredivFactorTable                       0x0800553a   Data           2  stm32f1xx_hal_rcc_ex.o(.constdata)
+    .constdata                               0x0800553c   Section       24  system_stm32f1xx.o(.constdata)
+    .constdata                               0x08005554   Section       32  rredf.o(.constdata)
+    twooverpi                                0x08005554   Data          32  rredf.o(.constdata)
     .data                                    0x20000000   Section      160  foc.o(.data)
     .data                                    0x200000a0   Section       60  current.o(.data)
     .data                                    0x200000dc   Section       48  main.o(.data)
-    .data                                    0x2000010c   Section      104  control.o(.data)
-    prev_output                              0x20000170   Data           4  control.o(.data)
-    .data                                    0x20000174   Section        9  stm32f1xx_hal.o(.data)
-    .data                                    0x20000180   Section        4  system_stm32f1xx.o(.data)
-    .data                                    0x20000184   Section        4  stdout.o(.data)
-    .data                                    0x20000188   Section        4  errno.o(.data)
-    _errno                                   0x20000188   Data           4  errno.o(.data)
-    .bss                                     0x2000018c   Section      132  foc.o(.bss)
-    .bss                                     0x20000210   Section       84  main.o(.bss)
-    .bss                                     0x20000264   Section      116  adc.o(.bss)
-    .bss                                     0x200002d8   Section       84  i2c.o(.bss)
-    .bss                                     0x2000032c   Section       72  tim.o(.bss)
-    .bss                                     0x20000374   Section      140  usart.o(.bss)
-    STACK                                    0x20000400   Section     1024  startup_stm32f103xb.o(STACK)
+    .data                                    0x2000010c   Section      124  control.o(.data)
+    prev_output                              0x20000184   Data           4  control.o(.data)
+    .data                                    0x20000188   Section        9  stm32f1xx_hal.o(.data)
+    .data                                    0x20000194   Section        4  system_stm32f1xx.o(.data)
+    .data                                    0x20000198   Section        4  stdout.o(.data)
+    .data                                    0x2000019c   Section        4  errno.o(.data)
+    _errno                                   0x2000019c   Data           4  errno.o(.data)
+    .bss                                     0x200001a0   Section      132  foc.o(.bss)
+    .bss                                     0x20000224   Section       84  main.o(.bss)
+    .bss                                     0x20000278   Section      116  adc.o(.bss)
+    .bss                                     0x200002ec   Section       84  i2c.o(.bss)
+    .bss                                     0x20000340   Section       72  tim.o(.bss)
+    .bss                                     0x20000388   Section      140  usart.o(.bss)
+    STACK                                    0x20000418   Section     1024  startup_stm32f103xb.o(STACK)
 
     Global Symbols
 
@@ -2631,24 +2631,24 @@ Image Symbol Table
     _constrain                               0x0800499d   Thumb Code    40  control.o(i._constrain)
     asinf                                    0x080049e9   Thumb Code   254  asinf.o(i.asinf)
     constrain                                0x08004b0d   Thumb Code    40  foc.o(i.constrain)
-    control                                  0x08004b35   Thumb Code   138  control.o(i.control)
-    cosf                                     0x08004bf1   Thumb Code   328  cosf.o(i.cosf)
-    electricAngle                            0x08004d6d   Thumb Code    70  foc.o(i.electricAngle)
-    fmodf                                    0x08004dc5   Thumb Code   108  fmodf.o(i.fmodf)
-    fputc                                    0x08004e31   Thumb Code    22  main.o(i.fputc)
-    get_d                                    0x08004e4d   Thumb Code     2  control.o(i.get_d)
-    get_vel                                  0x08004e4f   Thumb Code     2  control.o(i.get_vel)
-    main                                     0x08004e51   Thumb Code   254  main.o(i.main)
-    normalizeAngle                           0x08004f99   Thumb Code    38  foc.o(i.normalizeAngle)
-    pid                                      0x08004fc5   Thumb Code   120  control.o(i.pid)
-    predict_vel                              0x08005045   Thumb Code   768  control.o(i.predict_vel)
-    sinf                                     0x08005385   Thumb Code   338  sinf.o(i.sinf)
-    sqrtf                                    0x0800550d   Thumb Code    44  sqrtf.o(i.sqrtf)
-    AHBPrescTable                            0x0800555c   Data          16  system_stm32f1xx.o(.constdata)
-    APBPrescTable                            0x0800556c   Data           8  system_stm32f1xx.o(.constdata)
-    sinTable_f32                             0x08005594   Data        2052  arm_common_tables.o(.rodata.sinTable_f32)
-    Region$$Table$$Base                      0x08005d98   Number         0  anon$$obj.o(Region$$Table)
-    Region$$Table$$Limit                     0x08005db8   Number         0  anon$$obj.o(Region$$Table)
+    control                                  0x08004b35   Thumb Code   128  control.o(i.control)
+    cosf                                     0x08004be1   Thumb Code   328  cosf.o(i.cosf)
+    electricAngle                            0x08004d5d   Thumb Code    70  foc.o(i.electricAngle)
+    fmodf                                    0x08004db5   Thumb Code   108  fmodf.o(i.fmodf)
+    fputc                                    0x08004e21   Thumb Code    22  main.o(i.fputc)
+    get_d                                    0x08004e3d   Thumb Code     2  control.o(i.get_d)
+    get_vel                                  0x08004e3f   Thumb Code     2  control.o(i.get_vel)
+    main                                     0x08004e41   Thumb Code   254  main.o(i.main)
+    normalizeAngle                           0x08004f89   Thumb Code    38  foc.o(i.normalizeAngle)
+    pid                                      0x08004fb5   Thumb Code   108  control.o(i.pid)
+    predict_vel                              0x08005025   Thumb Code   768  control.o(i.predict_vel)
+    sinf                                     0x08005365   Thumb Code   338  sinf.o(i.sinf)
+    sqrtf                                    0x080054ed   Thumb Code    44  sqrtf.o(i.sqrtf)
+    AHBPrescTable                            0x0800553c   Data          16  system_stm32f1xx.o(.constdata)
+    APBPrescTable                            0x0800554c   Data           8  system_stm32f1xx.o(.constdata)
+    sinTable_f32                             0x08005574   Data        2052  arm_common_tables.o(.rodata.sinTable_f32)
+    Region$$Table$$Base                      0x08005d78   Number         0  anon$$obj.o(Region$$Table)
+    Region$$Table$$Limit                     0x08005d98   Number         0  anon$$obj.o(Region$$Table)
     M0_CUR_Filter                            0x20000000   Data          12  foc.o(.data)
     M0_VEL_Filter                            0x2000000c   Data          12  foc.o(.data)
     M1_CUR_Filter                            0x20000018   Data          12  foc.o(.data)
@@ -2691,46 +2691,47 @@ Image Symbol Table
     testa                                    0x20000100   Data           4  main.o(.data)
     testb                                    0x20000104   Data           4  main.o(.data)
     flag                                     0x20000108   Data           4  main.o(.data)
-    pid_params                               0x2000010c   Data          20  control.o(.data)
-    pre_vel                                  0x20000120   Data           4  control.o(.data)
-    pre_d                                    0x20000124   Data           4  control.o(.data)
-    vel                                      0x20000128   Data           4  control.o(.data)
-    d                                        0x2000012c   Data           4  control.o(.data)
-    Last_d                                   0x20000130   Data           4  control.o(.data)
-    u                                        0x20000134   Data           4  control.o(.data)
-    setd                                     0x20000138   Data           4  control.o(.data)
-    setv                                     0x2000013c   Data           4  control.o(.data)
-    pidd                                     0x20000140   Data           4  control.o(.data)
-    pidv                                     0x20000144   Data           4  control.o(.data)
-    a                                        0x20000148   Data           4  control.o(.data)
-    b                                        0x2000014c   Data           4  control.o(.data)
-    i                                        0x20000150   Data           4  control.o(.data)
-    j                                        0x20000154   Data           4  control.o(.data)
-    baseangel                                0x20000158   Data           4  control.o(.data)
-    angle_from_acc                           0x2000015c   Data           4  control.o(.data)
-    angle                                    0x20000160   Data           4  control.o(.data)
-    ag                                       0x20000164   Data           4  control.o(.data)
-    dt                                       0x20000168   Data           4  control.o(.data)
-    Last_Vel_ts                              0x2000016c   Data           4  control.o(.data)
-    uwTick                                   0x20000174   Data           4  stm32f1xx_hal.o(.data)
-    uwTickPrio                               0x20000178   Data           4  stm32f1xx_hal.o(.data)
-    uwTickFreq                               0x2000017c   Data           1  stm32f1xx_hal.o(.data)
-    SystemCoreClock                          0x20000180   Data           4  system_stm32f1xx.o(.data)
-    __stdout                                 0x20000184   Data           4  stdout.o(.data)
-    Motor0                                   0x2000018c   Data          36  foc.o(.bss)
-    Motor1                                   0x200001b0   Data          36  foc.o(.bss)
-    Angle_Sensor0                            0x200001d4   Data          28  foc.o(.bss)
-    Current_Sensor0                          0x200001f0   Data          32  foc.o(.bss)
-    velocity_pid                             0x20000210   Data          28  main.o(.bss)
-    angle_pid                                0x2000022c   Data          28  main.o(.bss)
-    current_pid                              0x20000248   Data          28  main.o(.bss)
-    hadc1                                    0x20000264   Data          48  adc.o(.bss)
-    hdma_adc1                                0x20000294   Data          68  adc.o(.bss)
-    hi2c2                                    0x200002d8   Data          84  i2c.o(.bss)
-    htim2                                    0x2000032c   Data          72  tim.o(.bss)
-    huart1                                   0x20000374   Data          72  usart.o(.bss)
-    hdma_usart1_rx                           0x200003bc   Data          68  usart.o(.bss)
-    __initial_sp                             0x20000800   Data           0  startup_stm32f103xb.o(STACK)
+    pid_params1                              0x2000010c   Data          20  control.o(.data)
+    pid_params2                              0x20000120   Data          20  control.o(.data)
+    pre_vel                                  0x20000134   Data           4  control.o(.data)
+    pre_d                                    0x20000138   Data           4  control.o(.data)
+    vel                                      0x2000013c   Data           4  control.o(.data)
+    d                                        0x20000140   Data           4  control.o(.data)
+    Last_d                                   0x20000144   Data           4  control.o(.data)
+    u                                        0x20000148   Data           4  control.o(.data)
+    setd                                     0x2000014c   Data           4  control.o(.data)
+    setv                                     0x20000150   Data           4  control.o(.data)
+    pidd                                     0x20000154   Data           4  control.o(.data)
+    pidv                                     0x20000158   Data           4  control.o(.data)
+    a                                        0x2000015c   Data           4  control.o(.data)
+    b                                        0x20000160   Data           4  control.o(.data)
+    i                                        0x20000164   Data           4  control.o(.data)
+    j                                        0x20000168   Data           4  control.o(.data)
+    baseangel                                0x2000016c   Data           4  control.o(.data)
+    angle_from_acc                           0x20000170   Data           4  control.o(.data)
+    angle                                    0x20000174   Data           4  control.o(.data)
+    ag                                       0x20000178   Data           4  control.o(.data)
+    dt                                       0x2000017c   Data           4  control.o(.data)
+    Last_Vel_ts                              0x20000180   Data           4  control.o(.data)
+    uwTick                                   0x20000188   Data           4  stm32f1xx_hal.o(.data)
+    uwTickPrio                               0x2000018c   Data           4  stm32f1xx_hal.o(.data)
+    uwTickFreq                               0x20000190   Data           1  stm32f1xx_hal.o(.data)
+    SystemCoreClock                          0x20000194   Data           4  system_stm32f1xx.o(.data)
+    __stdout                                 0x20000198   Data           4  stdout.o(.data)
+    Motor0                                   0x200001a0   Data          36  foc.o(.bss)
+    Motor1                                   0x200001c4   Data          36  foc.o(.bss)
+    Angle_Sensor0                            0x200001e8   Data          28  foc.o(.bss)
+    Current_Sensor0                          0x20000204   Data          32  foc.o(.bss)
+    velocity_pid                             0x20000224   Data          28  main.o(.bss)
+    angle_pid                                0x20000240   Data          28  main.o(.bss)
+    current_pid                              0x2000025c   Data          28  main.o(.bss)
+    hadc1                                    0x20000278   Data          48  adc.o(.bss)
+    hdma_adc1                                0x200002a8   Data          68  adc.o(.bss)
+    hi2c2                                    0x200002ec   Data          84  i2c.o(.bss)
+    htim2                                    0x20000340   Data          72  tim.o(.bss)
+    huart1                                   0x20000388   Data          72  usart.o(.bss)
+    hdma_usart1_rx                           0x200003d0   Data          68  usart.o(.bss)
+    __initial_sp                             0x20000818   Data           0  startup_stm32f103xb.o(STACK)
 
 
 
@@ -2740,9 +2741,9 @@ Memory Map of the image
 
   Image Entry point : 0x080000ed
 
-  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005f44, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00005e10])
+  Load Region LR_IROM1 (Base: 0x08000000, Size: 0x00005f38, Max: 0x00010000, ABSOLUTE, COMPRESSED[0x00005df8])
 
-    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005db8, Max: 0x00010000, ABSOLUTE)
+    Execution Region ER_IROM1 (Exec base: 0x08000000, Load base: 0x08000000, Size: 0x00005d98, Max: 0x00010000, ABSOLUTE)
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
@@ -2938,47 +2939,48 @@ Memory Map of the image
     0x080049e6   0x080049e6   0x00000002   PAD
     0x080049e8   0x080049e8   0x00000124   Code   RO         4313    i.asinf             m_ws.l(asinf.o)
     0x08004b0c   0x08004b0c   0x00000028   Code   RO          253    i.constrain         foc.o
-    0x08004b34   0x08004b34   0x000000bc   Code   RO          922    i.control           control.o
-    0x08004bf0   0x08004bf0   0x0000017c   Code   RO         4321    i.cosf              m_ws.l(cosf.o)
-    0x08004d6c   0x08004d6c   0x00000058   Code   RO          254    i.electricAngle     foc.o
-    0x08004dc4   0x08004dc4   0x0000006c   Code   RO         4329    i.fmodf             m_ws.l(fmodf.o)
-    0x08004e30   0x08004e30   0x0000001c   Code   RO          503    i.fputc             main.o
-    0x08004e4c   0x08004e4c   0x00000002   Code   RO          923    i.get_d             control.o
-    0x08004e4e   0x08004e4e   0x00000002   Code   RO          924    i.get_vel           control.o
-    0x08004e50   0x08004e50   0x00000148   Code   RO          504    i.main              main.o
-    0x08004f98   0x08004f98   0x0000002c   Code   RO          255    i.normalizeAngle    foc.o
-    0x08004fc4   0x08004fc4   0x00000080   Code   RO          925    i.pid               control.o
-    0x08005044   0x08005044   0x00000340   Code   RO          926    i.predict_vel       control.o
-    0x08005384   0x08005384   0x00000188   Code   RO         4337    i.sinf              m_ws.l(sinf.o)
-    0x0800550c   0x0800550c   0x0000002c   Code   RO         4665    i.sqrtf             m_ws.l(sqrtf.o)
-    0x08005538   0x08005538   0x00000012   Data   RO         1487    .constdata          stm32f1xx_hal_rcc.o
-    0x0800554a   0x0800554a   0x00000012   Data   RO         1583    .constdata          stm32f1xx_hal_rcc_ex.o
-    0x0800555c   0x0800555c   0x00000018   Data   RO         4142    .constdata          system_stm32f1xx.o
-    0x08005574   0x08005574   0x00000020   Data   RO         4662    .constdata          m_ws.l(rredf.o)
-    0x08005594   0x08005594   0x00000804   Data   RO         4305    .rodata.sinTable_f32  arm_cortexM3l_math.lib(arm_common_tables.o)
-    0x08005d98   0x08005d98   0x00000020   Data   RO         4719    Region$$Table       anon$$obj.o
+    0x08004b34   0x08004b34   0x000000ac   Code   RO          922    i.control           control.o
+    0x08004be0   0x08004be0   0x0000017c   Code   RO         4321    i.cosf              m_ws.l(cosf.o)
+    0x08004d5c   0x08004d5c   0x00000058   Code   RO          254    i.electricAngle     foc.o
+    0x08004db4   0x08004db4   0x0000006c   Code   RO         4329    i.fmodf             m_ws.l(fmodf.o)
+    0x08004e20   0x08004e20   0x0000001c   Code   RO          503    i.fputc             main.o
+    0x08004e3c   0x08004e3c   0x00000002   Code   RO          923    i.get_d             control.o
+    0x08004e3e   0x08004e3e   0x00000002   Code   RO          924    i.get_vel           control.o
+    0x08004e40   0x08004e40   0x00000148   Code   RO          504    i.main              main.o
+    0x08004f88   0x08004f88   0x0000002c   Code   RO          255    i.normalizeAngle    foc.o
+    0x08004fb4   0x08004fb4   0x00000070   Code   RO          925    i.pid               control.o
+    0x08005024   0x08005024   0x00000340   Code   RO          926    i.predict_vel       control.o
+    0x08005364   0x08005364   0x00000188   Code   RO         4337    i.sinf              m_ws.l(sinf.o)
+    0x080054ec   0x080054ec   0x0000002c   Code   RO         4665    i.sqrtf             m_ws.l(sqrtf.o)
+    0x08005518   0x08005518   0x00000012   Data   RO         1487    .constdata          stm32f1xx_hal_rcc.o
+    0x0800552a   0x0800552a   0x00000012   Data   RO         1583    .constdata          stm32f1xx_hal_rcc_ex.o
+    0x0800553c   0x0800553c   0x00000018   Data   RO         4142    .constdata          system_stm32f1xx.o
+    0x08005554   0x08005554   0x00000020   Data   RO         4662    .constdata          m_ws.l(rredf.o)
+    0x08005574   0x08005574   0x00000804   Data   RO         4305    .rodata.sinTable_f32  arm_cortexM3l_math.lib(arm_common_tables.o)
+    0x08005d78   0x08005d78   0x00000020   Data   RO         4719    Region$$Table       anon$$obj.o
 
 
-    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005db8, Size: 0x00000800, Max: 0x00005000, ABSOLUTE, COMPRESSED[0x00000058])
+    Execution Region RW_IRAM1 (Exec base: 0x20000000, Load base: 0x08005d98, Size: 0x00000818, Max: 0x00005000, ABSOLUTE, COMPRESSED[0x00000060])
 
     Exec Addr    Load Addr    Size         Type   Attr      Idx    E Section Name        Object
 
     0x20000000   COMPRESSED   0x000000a0   Data   RW          258    .data               foc.o
     0x200000a0   COMPRESSED   0x0000003c   Data   RW          456    .data               current.o
     0x200000dc   COMPRESSED   0x00000030   Data   RW          506    .data               main.o
-    0x2000010c   COMPRESSED   0x00000068   Data   RW          927    .data               control.o
-    0x20000174   COMPRESSED   0x00000009   Data   RW         1323    .data               stm32f1xx_hal.o
-    0x2000017d   COMPRESSED   0x00000003   PAD
-    0x20000180   COMPRESSED   0x00000004   Data   RW         4143    .data               system_stm32f1xx.o
-    0x20000184   COMPRESSED   0x00000004   Data   RW         4686    .data               mc_w.l(stdout.o)
-    0x20000188   COMPRESSED   0x00000004   Data   RW         4698    .data               mc_w.l(errno.o)
-    0x2000018c        -       0x00000084   Zero   RW          257    .bss                foc.o
-    0x20000210        -       0x00000054   Zero   RW          505    .bss                main.o
-    0x20000264        -       0x00000074   Zero   RW          614    .bss                adc.o
-    0x200002d8        -       0x00000054   Zero   RW          680    .bss                i2c.o
-    0x2000032c        -       0x00000048   Zero   RW          723    .bss                tim.o
-    0x20000374        -       0x0000008c   Zero   RW          770    .bss                usart.o
-    0x20000400        -       0x00000400   Zero   RW            1    STACK               startup_stm32f103xb.o
+    0x2000010c   COMPRESSED   0x0000007c   Data   RW          927    .data               control.o
+    0x20000188   COMPRESSED   0x00000009   Data   RW         1323    .data               stm32f1xx_hal.o
+    0x20000191   COMPRESSED   0x00000003   PAD
+    0x20000194   COMPRESSED   0x00000004   Data   RW         4143    .data               system_stm32f1xx.o
+    0x20000198   COMPRESSED   0x00000004   Data   RW         4686    .data               mc_w.l(stdout.o)
+    0x2000019c   COMPRESSED   0x00000004   Data   RW         4698    .data               mc_w.l(errno.o)
+    0x200001a0        -       0x00000084   Zero   RW          257    .bss                foc.o
+    0x20000224        -       0x00000054   Zero   RW          505    .bss                main.o
+    0x20000278        -       0x00000074   Zero   RW          614    .bss                adc.o
+    0x200002ec        -       0x00000054   Zero   RW          680    .bss                i2c.o
+    0x20000340        -       0x00000048   Zero   RW          723    .bss                tim.o
+    0x20000388        -       0x0000008c   Zero   RW          770    .bss                usart.o
+    0x20000414   COMPRESSED   0x00000004   PAD
+    0x20000418        -       0x00000400   Zero   RW            1    STACK               startup_stm32f103xb.o
 
 
 ==============================================================================
@@ -2990,7 +2992,7 @@ Image component sizes
 
        288         32          0          0        116       1719   adc.o
        408         38          0          0          0     458515   as5600.o
-      1192        122          0        104          0       4388   control.o
+      1160        112          0        124          0       4477   control.o
        292         64          0         60          0       2519   current.o
         68          4          0          0          0        730   dma.o
        244         16          0          0          0       1096   filter.o
@@ -3019,9 +3021,9 @@ Image component sizes
        252         30          0          0        140       1713   usart.o
 
     ----------------------------------------------------------------------
-     17164       1036        328        388       1652     591937   Object Totals
+     17132       1026        328        408       1656     592026   Object Totals
          0          0         32          0          0          0   (incl. Generated)
-        20          0          0          3          0          0   (incl. Padding)
+        20          0          0          3          4          0   (incl. Padding)
 
     ----------------------------------------------------------------------
 
@@ -3103,15 +3105,15 @@ Image component sizes
 
       Code (inc. data)   RO Data    RW Data    ZI Data      Debug   
 
-     21580       1226       2412        396       1652     595214   Grand Totals
-     21580       1226       2412         88       1652     595214   ELF Image Totals (compressed)
-     21580       1226       2412         88          0          0   ROM Totals
+     21548       1216       2412        416       1656     595303   Grand Totals
+     21548       1216       2412         96       1656     595303   ELF Image Totals (compressed)
+     21548       1216       2412         96          0          0   ROM Totals
 
 ==============================================================================
 
-    Total RO  Size (Code + RO Data)                23992 (  23.43kB)
-    Total RW  Size (RW Data + ZI Data)              2048 (   2.00kB)
-    Total ROM Size (Code + RO Data + RW Data)      24080 (  23.52kB)
+    Total RO  Size (Code + RO Data)                23960 (  23.40kB)
+    Total RW  Size (RW Data + ZI Data)              2072 (   2.02kB)
+    Total ROM Size (Code + RO Data + RW Data)      24056 (  23.49kB)
 
 ==============================================================================
 
